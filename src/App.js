@@ -1,17 +1,28 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ListadoTareas from './components/ListadoTareas';
 import FormTarea from './components/FormTarea';
 
 const App = () => {
   const [tareas, settareas] = useState([]);
+ // Cargar tareas almacenadas en localStorage al iniciar la aplicación
+ useEffect(() => {
+  const storedTareas = localStorage.getItem('tareas');
+  if (storedTareas) {
+    settareas(JSON.parse(storedTareas));
+  }
+}, []);
 
   const agregartareas = (nomTarea) => {
     const nuevaTarea = {
       id: Math.random().toString(),
       name: nomTarea,
+      completed: false, // Asumiendo que inicialmente una tarea no está completada
     };
-    settareas([...tareas, nuevaTarea]);
+    const nuevasTareas = [...tareas, nuevaTarea];
+    settareas(nuevasTareas);
+    localStorage.setItem('tareas', JSON.stringify(nuevasTareas)); // Guardar en localStorage
+     
   };
 
   const tareaCompleta = (tareaId) => {
@@ -19,11 +30,13 @@ const App = () => {
       tarea.id === tareaId ? { ...tarea, completed: !tarea.completed } : tarea
     );
     settareas(nuevastareas);
+    localStorage.setItem('tareas', JSON.stringify(nuevastareas)); // Guardar en localStorage
   };
 
   const tareaBorrada = (tareaId) => {
-    const filteredtareas = tareas.filter((tarea) => tarea.id !== tareaId);
-    settareas(filteredtareas);
+    const tareasFiltradas = tareas.filter((tarea) => tarea.id !== tareaId);
+    settareas(tareasFiltradas);
+    localStorage.setItem('tareas', JSON.stringify(tareasFiltradas)); // Guardar en localStorage
   };
 
   return (
