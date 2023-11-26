@@ -45,9 +45,9 @@ const App = () => {
     <div className='App'>
      <div className='contenedorPrincipal'>
 
-     <img src={logo}className='ImagenLogo' alt="Logo de la empresa" />
+     <img src={logo}className='ImagenLogo' alt="Logo de laempresa " />
 
-      <u><h1>Listado de Tareas</h1></u>
+      <u><h1>Listado de Tareas Taller</h1></u>
       <FormTarea agregartareas={agregartareas} />
       <ListadoTareas
         tareas={tareas}
