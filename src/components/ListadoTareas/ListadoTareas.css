@@ -1,0 +1,6 @@
+.contenedorListado {
+    display: grid; /*Creo una grilla */
+    grid-template-columns: repeat(3, 1fr); /* tareas en 3 columnas de igual ancho */
+gap: 20px;
+}
+  

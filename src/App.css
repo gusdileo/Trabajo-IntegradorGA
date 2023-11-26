@@ -1,19 +1,25 @@
 .App {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  min-height: 100vh; /* altura de la ventana */
 }
 
 .contenedorPrincipal {
+  flex: 1; /* hace que el contenedor principal ocupe todo el espacio vertical disponible */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
-  border: 4px solid rgb(91, 175, 147);
-  background-color: rgba(127, 255, 212, 0.26);
-  width: 40vw;
-  padding: 0 5rem; 
-  margin-top: 2rem;
+  padding: 0 5rem;
+  margin-top: 1rem;
+}
+
+.footer {
+  flex-shrink: 0; /* Evita que el footer se encoja para ajustarse al espacio disponible */
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.486);
+  text-align: center;
+  padding: 5px 0;
+  color: white;
+  font-weight: bolder;
 }

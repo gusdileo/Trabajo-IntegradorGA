@@ -1,9 +1,10 @@
-import React from 'react';
-import Tarea from './Tarea';
+import React from "react";
+import Tarea from "../Tarea/Tarea";
+import "./ListadoTareas.css";
 
 const ListadoTareas = ({ tareas, tareaCompleta, BorrarTarea }) => {
   return (
-    <div>
+    <div className="contenedorListado">
       {tareas.map((tar) => (
         <Tarea
           key={tar.id}

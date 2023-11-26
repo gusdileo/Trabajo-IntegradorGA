@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import ListadoTareas from './components/ListadoTareas';
-import FormTarea from './components/FormTarea';
+import ListadoTareas from './components/ListadoTareas/ListadoTareas';
+import FormTarea from './components/FormTarea/FormTarea';
 
 const App = () => {
   const [tareas, settareas] = useState([]);
@@ -13,10 +13,12 @@ const App = () => {
   }
 }, []);
 
-  const agregartareas = (nomTarea) => {
+  const agregartareas = (nomTarea, cantidad, precio) => {
     const nuevaTarea = {
       id: Math.random().toString(),
       name: nomTarea,
+      cantidad: cantidad,
+      precio: precio,
       completed: false, // Asumiendo que inicialmente una tarea no está completada
     };
     const nuevasTareas = [...tareas, nuevaTarea];
@@ -41,14 +43,18 @@ const App = () => {
 
   return (
     <div className='App'>
-      <div className='contenedorPrincipal'>
-      <h1>Listado de Tareas</h1>
+     <div className='contenedorPrincipal'>
+      <u><h1>Listado de Tareas</h1></u>
       <FormTarea agregartareas={agregartareas} />
       <ListadoTareas
         tareas={tareas}
         tareaCompleta={tareaCompleta}
         BorrarTarea={tareaBorrada}
       /></div>
+
+      <div className='footer'>
+        <p>Grupo A - TP Integrador - Argentina Programa 4.0</p>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,30 @@
+.formTareacontenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputscontenedor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  width: 120%;
+}
+
+.buttonAgregar {
+  width: 30%;
+  font-size: larger;
+  font-weight: bold;
+  padding: 7px 0;
+  background-color: rgb(0, 83, 56);
+  cursor: pointer;
+  color: white;
+  border-radius: 15px;
+}
+
+.buttonAgregar:hover {
+  background-color: rgb(0, 179, 119);
+  color: black;
+}
