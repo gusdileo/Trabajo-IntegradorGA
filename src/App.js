@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import ListadoTareas from './components/ListadoTareas/ListadoTareas';
 import FormTarea from './components/FormTarea/FormTarea';
-
+import logo from 'c:/react/proyectos/app-ti/src/RdMoto.png';
 const App = () => {
   const [tareas, settareas] = useState([]);
  // Cargar tareas almacenadas en localStorage al iniciar la aplicación
@@ -44,6 +44,9 @@ const App = () => {
   return (
     <div className='App'>
      <div className='contenedorPrincipal'>
+
+     <img src={logo}className='ImagenLogo' alt="Logo de la empresa" />
+
       <u><h1>Listado de Tareas</h1></u>
       <FormTarea agregartareas={agregartareas} />
       <ListadoTareas

@@ -23,3 +23,15 @@
   color: white;
   font-weight: bolder;
 }
+.ImagenLogo {
+
+  position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+
+img {
+    width: 16%; /* El 50% del tamaño original */
+    height: auto; /* Mantener la relación de aspecto original */
+}
