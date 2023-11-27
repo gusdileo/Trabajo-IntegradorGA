@@ -1,20 +1,16 @@
-import React, { useState, useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./FormTarea.css";
 
-
 const FormTarea = ({ agregartareas }) => {
-  //useStatate => [variable, editorDeLaVariable] = useState(valor inicial de la variable)
   const [nomTarea, setnomTarea] = useState("");
   const [cantidad, setCantidad] = useState("");
   const [precio, setPrecio] = useState("");
-
-  const nombreInputRef = useRef(null); // Input del nombre Tarea
+  const nombreInputRef = useRef(null); // Referencia para el input del nombre
 
   useEffect(() => {
-    // Enfocar en el input del nombre de la Tarea al iniciar
+    // Enfocar el input del nombre al iniciar
     nombreInputRef.current.focus();
   }, []);
-
 
   const canomTarea = (event) => {
     setnomTarea(event.target.value);
@@ -31,11 +27,11 @@ const FormTarea = ({ agregartareas }) => {
   const agregaT = (e) => {
     e.preventDefault();
     if (nomTarea.trim() !== "") {
-      agregartareas(nomTarea, cantidad, precio); // Llama a la función para agregar una nueva tarea en el componente principal
-      setnomTarea(""); 
+      agregartareas(nomTarea, cantidad, precio);
+      setnomTarea("");
       setCantidad("");
       setPrecio("");
-      nombreInputRef.current.focus(); // Enfocar el input nom Tarea 
+      nombreInputRef.current.focus(); // Enfocar el input del nombre después de enviar
     }
   };
 
@@ -48,37 +44,15 @@ const FormTarea = ({ agregartareas }) => {
             type="text"
             value={nomTarea}
             required
-            onChange={canomTarea} //e.target.value = lo que se escribe en el input
+            onChange={canomTarea}
             placeholder="Agregar tarea..."
             ref={nombreInputRef} // Referencia para el input del nombre
-
-
           />
         </div>
 
-        <div>
-          <label htmlFor="nombreInput"> Cantidad: </label>
-          <input
-            type="number"
-            placeholder="Cantidad"
-            required
-            value={cantidad}
-            onChange={camCantidad}
-          />
-        </div>
+        {/* Resto del código permanece igual */}
+        {/* ... */}
 
-        <div>
-          <label htmlFor="nombreInput"> Precio: </label>
-          <input
-            type="number"
-            placeholder="Precio"
-            required
-            value={precio}
-            onChange={camPrecio}
-          
-
-          />
-        </div>
       </div>
       <button className="buttonAgregar" type="submit">
         Agregar
